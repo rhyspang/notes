@@ -1,0 +1,30 @@
+用pip安装影梭
+pip install shadowsocks
+
+
+sslocal -c /etc/shadowsocks.json
+/etc/shadowsocks.json 里放的登录信息
+
+{
+"server" : "jp06-20.ssv7.net",
+"server_port" : 28457,
+"local_port":1080,
+"password" : "VjBuTBGa8z4v",
+"method" : "aes-256-cfb",
+"timeout":600,
+}
+
+
+sslocal -c /etc/shadowsocks.json -d start可后台运行
+
+
+可以编辑/etc/rc.local 加上sslocal -c /etc/shadowsocks.json -d start就可以实现开机自动启动
+
+
+使用工具制作自己的pac文件
+pac用于过滤没有被墙的地址
+sudo pip install genpac
+
+genpac --proxy="SOCKS5 127.0.0.1:1080" --gfwlist-proxy="SOCKS5 127.0.0.1:1080" -o autoproxy.pac --gfwlist-url="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"   
+
+在网络代理>自动 中填写pac的绝对路径

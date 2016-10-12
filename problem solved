@@ -1,0 +1,5 @@
+给apache tomcat服务器加上可执行权限
+sudo chmod +x <dir name>
+
+用dpkg -i *.deb安装程序
+在用apt-get -f install 修复安装依赖

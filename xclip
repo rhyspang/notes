@@ -1,0 +1,14 @@
+2 终端输出保存到剪切板中
+ls -al | xclip
+此时ls -al的输出内容已经保存在剪切板中了，此时xclip -o可以看到剪切板的内容。
+但此时还不可以粘贴到终端以外的程序中，此时需要用到： xclip -selection c 
+ls -al | xclip -selection c
+3 文件内容复制到剪切板中
+xclip /etc/apt/sources.list
+xclip -selection c /etc/apt/sources.list
+4 剪切板内容输出到终端
+xclip -o
+xclip -selection c -o
+5 剪切板内容输出到文件
+xclip -o > ~/test.txt
+xclip -selection c -o > ~/test.txts
